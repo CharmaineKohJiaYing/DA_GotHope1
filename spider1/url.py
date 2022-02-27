@@ -9,7 +9,7 @@ class NewSpider(scrapy.Spider):
             yield {
                 'Image Link': x.xpath('@src').extract_first(),
             }
-            Page_selector = '.next a ::attr(herf)'
+            Page_selector = '.next a ::attr(href)'
             next_page = response.css(Page_selector).extract_first()
             if next_page:
                 yield scrapy.Request(
